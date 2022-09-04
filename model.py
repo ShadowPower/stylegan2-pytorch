@@ -500,17 +500,8 @@ class Generator(nn.Module):
     def get_latent(self, input):
         return self.style(input)
 
-    def forward(
-        self,
-        styles,
-        return_latents=False,
-        inject_index=None,
-        truncation=1,
-        truncation_latent=None,
-        input_is_latent=False,
-        noise=None,
-        randomize_noise=True,
-    ):
+    def forward(self, styles, truncation=1, truncation_latent=None, return_latents=False, inject_index=None,
+                input_is_latent=False, noise=None, randomize_noise=True):
         if not input_is_latent:
             styles = [self.style(s) for s in styles]
 
